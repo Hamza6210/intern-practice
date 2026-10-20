@@ -25,6 +25,8 @@ if __name__ == "__main__":
         print("-" * 40)
 
 
+#Field (ge=0, le=100)
+
 class ExamResult(BaseModel):
     student_name: str
 
