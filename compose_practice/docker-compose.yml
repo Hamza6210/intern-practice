@@ -1,0 +1,23 @@
+services:
+  db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_DB: school
+      POSTGRES_USER: student_user
+      POSTGRES_PASSWORD: practice_pass
+    
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+  app:
+    build: .
+    environment:
+      DB_HOST: db
+      DB_NAME: school
+      DB_USER: student_user
+      DB_PASSWORD: practice_pass
+    depends_on:
+      - db
+
+volumes:
+  pgdata:
